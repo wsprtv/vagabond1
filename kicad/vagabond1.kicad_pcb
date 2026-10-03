@@ -572,7 +572,7 @@
 				)
 			)
 		)
-		(property "Value" "TPV809R"
+		(property "Value" "APX803S05-26SA"
 			(at 0 2.4 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -584,7 +584,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://static.3peak.com/res/doc/ds/Datasheet_TPV803-TPV809-TPV810.pdf"
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/APX803S.pdf"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -756,7 +756,7 @@
 			(uuid "dec3e4e8-fcab-4617-82ed-c1ad8cb25ae8")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 180)
+			(at -0.2855 0 180)
 			(layer "F.Fab")
 			(uuid "3a43d51a-acfe-4dbb-8598-f7bd79f8a3d9")
 			(effects

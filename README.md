@@ -20,7 +20,7 @@ can be assembled by hand. Vagabond1 is fully supported by
 
 In addition to the Si5351A or MS5351M clock generator and ATGM336H-5N31 GPS
 module, Vagabond1 uses the
-[TPV809R](https://www.digikey.com/en/products/detail/3peak/TPV809R-3TR/22228318)
+[APX803S05-26SA](https://www.digikey.com/en/products/detail/diodes-incorporated/APX803S05-26SA-7/7352746)
 voltage monitor and the
 [HSB221S 26MHz TCXO](https://www.digikey.com/en/products/detail/harmony-electronics-corp-h-ele/TC2S026000DCCHE-T/16733095).
 Both are readily available on DigiKey, though several pin-compatible
