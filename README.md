@@ -18,13 +18,17 @@ can be assembled by hand. Vagabond1 is fully supported by
 
 ## Assembly
 
-In addition to the Si5351A or MS5351M clock generator and ATGM336H-5N31 GPS
+In addition to the [Si5351A](https://www.digikey.com/en/products/detail/skyworks-solutions-inc/SI5351A-B-GTR/4069612) or
+[MS5351M](https://www.lcsc.com/product-detail/C1509083.html)
+clock generator and [ATGM336H-5N31](https://www.lcsc.com/product-detail/C90770.html) GPS
 module, Vagabond1 uses the
 [APX803S05-26SA](https://www.digikey.com/en/products/detail/diodes-incorporated/APX803S05-26SA-7/7352746)
 voltage monitor and the
 [HSB221S 26MHz TCXO](https://www.digikey.com/en/products/detail/harmony-electronics-corp-h-ele/TC2S026000DCCHE-T/16733095).
 Both are readily available on DigiKey, though several pin-compatible
 alternatives can be easily substituted.
+
+All ceramic capacitors should be rated for at least 6V.
 
 Unpopulated PCBs can be ordered from [OSH Park](https://oshpark.com).
 Upload the
@@ -42,19 +46,19 @@ so that the GPS module **faces away** from the USB-C port.
 
 ## ESP32 C3 Super Mini Modifications
 
-The ESP32 board requires two modifications when powered with solar panels.
+The ESP32 board requires two modifications when powered with solar cells.
 
-1. The RESET line needs to be routed out to pin 2 to enable voltage
-monitoring. Connect two pads with a wire as shown below:
+1. The RESET line on the ESP32 needs to be routed to pin 2 to enable voltage
+monitoring. Connect the two pads with a wire as shown below:
 
 <img src="images/mod1a.png" height=400>
 
-2. Replacing the reverse polarity protection diode on VSYS with a 0-ohm
-resistor or a solder bridge eliminates an unnecessary 0.2V drop. Removing
-the always-on power LED or the associated current-limiting resistor
-saves ~0.8 mA. The image below shows the location
+2. Replace the reverse polarity protection diode on VSYS with a 0-ohm
+resistor or a solder bridge to eliminate an unnecessary 0.2V drop. Also,
+consider removing the always-on power LED or the associated current-limiting
+resistor (or both) to save ~0.8 mA. The image below shows the location
 of the diode (top highlighted component), followed by the resistor
-and the LED. 
+and the LED.
 
 <img src="images/mod2.png" height=400>
 
