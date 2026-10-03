@@ -9,8 +9,8 @@ can be assembled by hand. Vagabond1 is fully supported by
 
 ## Links
 
-- [Schematic](docs/vagabond1.pdf)
-- [Interactive BOM](docs/ibom.html)
+- [Schematic](https://wsprtv.com/vagabond1/docs/vagabond1.pdf)
+- [Interactive BOM](https://wsprtv.com/vagabond1/docs/ibom.html)
 - [KiCad files](https://github.com/wsprtv/vagabond1/tree/main/kicad)
 - [Gerbers](https://github.com/wsprtv/vagabond1/tree/main/gerbers)
 - [Nomad firmware](https://github.com/wsprtv/nomad)
@@ -28,7 +28,7 @@ alternatives can be easily substituted.
 
 Unpopulated PCBs can be ordered from [OSH Park](https://oshpark.com).
 Upload the
-[KiCad board file](kicad/vagabond1.kicad_pcb) and select the
+[KiCad board file](https://wsprtv.com/vagabond1/kicad/vagabond1.kicad_pcb) and select the
 **0.8mm thickness, 2oz copper** option. Stencils can be ordered from
 [OSH Stencils](https://oshstencils.com) or cut at home using a Silhouette or
 Cricut machine.
