@@ -2,59 +2,41 @@
 
 <img src="images/intro.png" height=300>
 
-Vagabond1 is a tiny WSPR transmitter that piggybacks on the popular ESP32 C3
-Super Mini board. It contains only 15 components (including 11 passives) and
-can be assembled by hand. Vagabond1 is fully supported by
+Vagabond1 is a tiny WSPR transmitter that piggybacks on the popular
+[ESP32 C3 Super Mini board](https://www.espboards.dev/esp32/esp32-c3-super-mini).
+It contains only 11 components (including 7 passives).
+Vagabond1 is fully supported by
 [Nomad](https://github.com/wsprtv/nomad) firmware.
 
 ## Links
 
 - [Schematic](https://wsprtv.com/vagabond1/docs/vagabond1.pdf)
 - [Interactive BOM](https://wsprtv.com/vagabond1/docs/ibom.html)
-- [KiCad files](https://github.com/wsprtv/vagabond1/tree/main/kicad)
-- [Gerbers](https://github.com/wsprtv/vagabond1/tree/main/gerbers)
-- [Nomad firmware](https://github.com/wsprtv/nomad)
+- [KiCad Files](https://github.com/wsprtv/vagabond1/tree/main/kicad)
+- [JLCPCB Fabrication Files](https://github.com/wsprtv/vagabond1/tree/main/fabrication)
+- [Nomad Firmware](https://github.com/wsprtv/nomad)
 - [ESP32 C3 Super Mini Documentation](https://www.espboards.dev/esp32/esp32-c3-super-mini/)
 
 ## Assembly
 
-In addition to the [Si5351A](https://www.digikey.com/en/products/detail/skyworks-solutions-inc/SI5351A-B-GTR/4069612) or
-[MS5351M](https://www.lcsc.com/product-detail/C1509083.html)
-clock generator and [ATGM336H-5N31](https://www.lcsc.com/product-detail/C90770.html) GPS
-module, Vagabond1 uses the
-[APX803S05-26SA](https://www.digikey.com/en/products/detail/diodes-incorporated/APX803S05-26SA-7/7352746)
-voltage monitor and the
-[HSB221S 26MHz TCXO](https://www.digikey.com/en/products/detail/harmony-electronics-corp-h-ele/TC2S026000DCCHE-T/16733095).
-Both are readily available on DigiKey, though several pin-compatible
-alternatives can be easily substituted.
-
-All ceramic capacitors should be rated for at least 6V.
-
-Unpopulated PCBs can be ordered from [OSH Park](https://oshpark.com).
-Upload the
-[KiCad board file](https://wsprtv.com/vagabond1/kicad/vagabond1.kicad_pcb) and select the
-**0.8mm thickness, 2oz copper** option. Stencils can be ordered from
-[OSH Stencils](https://oshstencils.com) or cut at home using a Silhouette or
-Cricut machine.
-
-After applying solder paste and
-placing the components, I reflow the boards on an electric skillet. Assembling
-a batch of three boards takes roughly an hour.
+Vagabond1 boards can be assembled at JLCPCB using
+[these fabrication files](https://https://github.com/wsprtv/vagabond1/tree/main/fabrication).
+Select 0.8mm board thickness.
 
 When soldering Vagabond1 and ESP32 C3 Super Mini boards together, orient them
-so that the GPS module **faces away** from the USB-C port.
+so that the GPS module is away from the USB-C port.
 
 ## ESP32 C3 Super Mini Modifications
 
-The ESP32 board requires two modifications when powered with solar cells.
+The ESP32 board needs two modifications when powered with solar cells.
 
 1. The RESET line on the ESP32 needs to be routed to pin 2 to enable voltage
 monitoring. Connect the two pads with a wire as shown below:
 
 <img src="images/mod1a.png" height=400>
 
-2. Replace the reverse polarity protection diode on VSYS with a 0-ohm
-resistor or a solder bridge to eliminate an unnecessary 0.2V drop. Also,
+2. [Optional] Replace the reverse polarity protection diode on VSYS with a 0-ohm
+resistor or a short wire to eliminate an unnecessary 0.2V drop. Also,
 consider removing the always-on power LED or the associated current-limiting
 resistor (or both) to save ~0.8 mA. The image below shows the location
 of the diode (top highlighted component), followed by the resistor
@@ -62,6 +44,10 @@ and the LED.
 
 <img src="images/mod2.png" height=400>
 
-## Connections
+## Power / Antenna Connections
 
-<img src="images/connections.png" height=500>
+<img src="images/connections1.png" height=500>
+
+## I2C Sensor Connections
+
+<img src="images/connections2.png" height=450>
