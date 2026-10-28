@@ -25,12 +25,15 @@ Vagabond1 boards can be assembled at JLCPCB using
 An [alternative BOM](https://github.com/wsprtv/vagabond1/tree/main/fabrication/options/jlcpcb_bom_si5351a.csv)
 is provided replacing MS5351m with Si5351a. While
 the two parts have nearly identical performance, Si5351a consumes
-[less power](#power-measurements) but also costs more.
+[less power](#power-measurements).
 
 Select 0.8mm board thickness.
 
 When soldering Vagabond1 and ESP32 C3 Super Mini boards together, orient them
 so that the GPS module is away from the USB-C port.
+
+The recommended GPS antenna is a magnetic wire (~30AWG) dipole with
+a ~30mm twisted feedline and ~46mm legs.
 
 ## ESP32 C3 Super Mini Modifications
 
@@ -54,16 +57,24 @@ and the LED.
 
 <img src="images/connections1.png" height=500>
 
-## I2C Sensor Connections
+## Sensor Connections
 
 <img src="images/connections2.png" height=450>
 
-In Nomad CT handlers, initialize sensor I2C as follows:
+Your I2C sensor should have a 4.7k or 10k pullup resistor on SCL.
+A pullup resistor on SDA is optional. In Nomad CT handlers,
+initialize I2C as follows:
 
 ```
 from machine import I2C, Pin
 i2c = I2C(0, scl = Pin(10), sda = Pin(9), freq = 100000)
 ```
+
+For 1-Wire protocols (such as DS18B20 temperature sensors), use pin
+8 for the data line. This pin is shared with the blue LED,
+so disable the LED in settings to avoid interference. More than one
+sensor may be attached to the same data line, and no pullup
+resistor is needed.
 
 ## Power Measurements ##
 
