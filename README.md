@@ -55,11 +55,11 @@ and the LED.
 
 ## Power / Antenna Connections
 
-<img src="images/connections1.png" height=500>
+<img src="images/connections1.png" width=400>
 
 ## Sensor Connections
 
-<img src="images/connections2.png" height=450>
+<img src="images/connections2.png" width=475>
 
 Your I2C sensor should have a 4.7k or 10k pullup resistor on SCL.
 A pullup resistor on SDA is optional. In Nomad CT handlers,
