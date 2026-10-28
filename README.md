@@ -22,7 +22,7 @@ Vagabond1 is fully supported by
 
 Vagabond1 boards can be assembled at JLCPCB using
 [these fabrication files](https://https://github.com/wsprtv/vagabond1/tree/main/fabrication).
-An [alternative BOM](https://https://github.com/wsprtv/vagabond1/tree/main/fabrication/options/jlcpcb_bom_si5351a.csv)
+An [alternative BOM](https://github.com/wsprtv/vagabond1/tree/main/fabrication/options/jlcpcb_bom_si5351a.csv)
 is provided replacing MS5351m with Si5351a. While
 the two parts have nearly identical performance, Si5351a consumes
 [less power](#power-measurements) but also costs more.
