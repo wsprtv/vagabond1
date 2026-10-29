@@ -117,16 +117,16 @@ with a high-bandwidth oscilloscope.
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
-| Low (LP)         | 46           | 5.0                |
-| Medium (MP)      | 50           | 7.9                |
-| High (HP)        | 63           | 12.2               |
-| Ultra-High (UHP) | 66           | 13.7               |
+| Low (LP)         | 46           | 7.1                |
+| Medium (MP)      | 50           | 10.0               |
+| High (HP)        | 63           | 14.3               |
+| Ultra-High (UHP) | 66           | 15.8               |
 
 ### Si5351a TX, 75 Ohm
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
-| Low (LP)         | 32           | 4.0                |
-| Medium (MP)      | 38           | 8.3                |
-| High (HP)        | 51           | 13.0               |
-| Ultra-High (UHP) | 53           | 13.9               |
+| Low (LP)         | 32           | 6.1                |
+| Medium (MP)      | 38           | 10.3               |
+| High (HP)        | 51           | 15.1               |
+| Ultra-High (UHP) | 53           | 16.0               |
