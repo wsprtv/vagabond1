@@ -35,6 +35,9 @@ so that the GPS module is away from the USB-C port.
 The recommended GPS antenna is a magnetic wire (~30AWG) dipole with
 a ~30mm twisted feedline and ~46mm legs.
 
+A [3D-printable frame](solar_cell_frame) is available for mounting
+Vagabond1 boards to six 52x19 or 39x19 solar cells.
+
 ## ESP32 C3 Super Mini Modifications
 
 The ESP32 board needs two modifications when powered with solar cells.
