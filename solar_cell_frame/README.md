@@ -2,7 +2,7 @@
 
 <img src="images/solar_cell_frame.png" height=300>
 
-This directory contains a lightweight (~0.6 g), 3D-printable frame 
+This lightweight (~0.6 g), 3D-printable frame is 
 designed to mount Vagabond1 transmitters to six 52×19 mm or 39×19 mm 
 solar cells.
 
