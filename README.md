@@ -81,12 +81,10 @@ resistor is needed.
 
 ## Power Measurements ##
 
-All mesurements were performed with a 3.6V power supply.
+All measurements were performed with a 3.6V power supply.
 
-50 ohm levels were measured with a tinySA Ultra+ spectrum analyzer and may have up to
-[2 dB of absolute error](https://tinysa.org/wiki/pmwiki.php?n=TinySA4.Specification).
-75 ohm levels were derived from peak-to-peak voltages measured across a 75 ohm resistor
-with a high-bandwidth oscilloscope.
+90 ohm impedance represents a resonant ~0.1mm copper half-wave
+dipole well above ground. Such an antenna has about 1 dB of loss.
 
 ### General ###
 
@@ -95,41 +93,45 @@ with a high-bandwidth oscilloscope.
 | Idle, enable_lp_sleep = False | 7            |
 | Idle, enable_lp_sleep = True  | 0.3          |
 | GPS Acquisition               | 30-32        | 
-| Red LED On                    | 0.3          |
-| Blue LED On                   | 0.5          |
+| Red LED On                    | +0.3         |
+| Blue LED On                   | +0.5         |
 
-### MS5351m TX, 50 Ohm
+### Si5351a TX, 90 Ohm
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
-| Low (LP)         | 47           | 5.3                |
-| Medium (MP)      | 52           | 9.0                |
-| High (HP)        | 65           | 13.7               |
-| Ultra-High (UHP) | 69           | 15.4               |
+| Ultra-Low (ULP)  | 29           | 1.6                |
+| Low (LP)         | 33           | 6.9                |
+| Medium (MP)      | 37           | 10.3               |
+| High (HP)        | 51           | 15.0               |
+| Ultra-High (UHP) | 54           | 16.1               |
+
+### MS5351m TX, 90 Ohm
+
+| Nomad TX Power   | Current (mA) | Output Power (dBm) |
+| ---------------- | ------------ | ------------------ |
+| Ultra-Low (ULP)  | 42           | 3.0                |
+| Low (LP)         | 46           | 7.4                |
+| Medium (MP)      | 49           | 9.6                |
+| High (HP)        | 63           | 14.2               |
+| Ultra-High (UHP) | 67           | 15.5               |
 
 ### Si5351a TX, 50 Ohm
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
-| Low (LP)         | 32           | 4.4                |
-| Medium (MP)      | 39           | 8.9                |
-| High (HP)        | 53           | 14.2               |
-| Ultra-High (UHP) | 55           | 15.3               |
+| Ultra-Low (ULP)  | 29           | 0.3                |
+| Low (LP)         | 33           | 4.6                |
+| Medium (MP)      | 40           | 9.8                |
+| High (HP)        | 54           | 14.4               |
+| Ultra-High (UHP) | 58           | 15.4               |
 
-### MS5351m TX, 75 Ohm
-
-| Nomad TX Power   | Current (mA) | Output Power (dBm) |
-| ---------------- | ------------ | ------------------ |
-| Low (LP)         | 46           | 7.1                |
-| Medium (MP)      | 50           | 10.0               |
-| High (HP)        | 63           | 14.3               |
-| Ultra-High (UHP) | 66           | 15.8               |
-
-### Si5351a TX, 75 Ohm
+### MS5351m TX, 50 Ohm
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
-| Low (LP)         | 32           | 6.1                |
-| Medium (MP)      | 38           | 10.3               |
-| High (HP)        | 51           | 15.1               |
-| Ultra-High (UHP) | 53           | 16.0               |
+| Ultra-Low (ULP)  | 42           | 1.7                |
+| Low (LP)         | 47           | 5.9                |
+| Medium (MP)      | 52           | 9.7                |
+| High (HP)        | 66           | 13.7               |
+| Ultra-High (UHP) | 72           | 15.8               |
