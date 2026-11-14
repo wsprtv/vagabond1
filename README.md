@@ -2,7 +2,8 @@
 
 <img src="images/intro.png" height=300>
 
-Vagabond1 is a tiny WSPR transmitter that piggybacks on the popular
+Vagabond1 is a tiny [WSPR](https://en.wikipedia.org/wiki/WSPR_(amateur_radio_software))
+transmitter that piggybacks on the popular
 [ESP32 C3 Super Mini board](https://www.espboards.dev/esp32/esp32-c3-super-mini).
 It contains only 11 components (including 7 passives).
 Vagabond1 is fully supported by
@@ -22,21 +23,26 @@ Vagabond1 is fully supported by
 
 Vagabond1 boards can be assembled at JLCPCB using
 [these fabrication files](https://https://github.com/wsprtv/vagabond1/tree/main/fabrication).
-An [alternative BOM](https://github.com/wsprtv/vagabond1/tree/main/fabrication/options/jlcpcb_bom_si5351a.csv)
-is provided replacing MS5351m with Si5351a. While
-the two parts have nearly identical performance, Si5351a consumes
-[less power](#power-measurements).
+An [alternative BOM](https://github.com/wsprtv/vagabond1/tree/main/fabrication/options/jlcpcb_bom_Si5351A.csv)
+is provided replacing MS5351M with Si5351A. While
+the two parts have nearly identical performance, Si5351A consumes
+[less power](#power-measurements), but no longer qualifies a 10-board JLCPCB
+order for the inexpensive Global Standard Direct Line shipping option.
 
 Select 0.8mm board thickness.
 
 When soldering Vagabond1 and ESP32 C3 Super Mini boards together, orient them
 so that the GPS module is away from the USB-C port.
 
-The recommended GPS antenna is a magnetic wire (~30AWG) dipole with
+The recommended GPS antenna is a magnetic wire dipole with
 a ~30mm twisted feedline and ~46mm legs.
 
-A [3D-printable frame](solar_cell_frame) is available for mounting
-Vagabond1 boards to six 52x19 or 39x19 solar cells.
+A 3D-printed frame is [available](solar_cell_frame) for mounting
+Vagabond1 boards to six 52x19 or 39x19mm solar cells.
+
+Like most Si5351A-based WSPR transmitters, Vagabond1 produces a square-wave
+output. It is your responsibility to provide the required filtering and
+to otherwise ensure compliance with all applicable regulations.
 
 ## ESP32 C3 Super Mini Modifications
 
@@ -47,18 +53,22 @@ monitoring. Connect the two pads with a wire as shown below:
 
 <img src="images/mod1a.png" height=400>
 
-2. [Optional] Replace the reverse polarity protection diode on VSYS with a 0-ohm
-resistor or a short wire to eliminate an unnecessary 0.2V drop. Also,
-consider removing the always-on power LED or the associated current-limiting
-resistor (or both) to save ~0.3 mA. The image below shows the location
-of the diode (top highlighted component), followed by the resistor
-and the LED.
+2. [Optional] Replace the reverse-polarity protection diode on VSYS
+with a 0-ohm resistor or a short wire to eliminate an unnecessary 0.2V
+drop. Also, consider removing the always-on power LED or the
+associated current-limiting resistor (or both) to save ~0.3 mA. The
+image below shows the location of the diode (top highlighted
+component), followed by the resistor and the LED.
 
 <img src="images/mod2.png" height=400>
 
 ## Power / Antenna Connections
 
 <img src="images/connections1.png" width=400>
+
+`V+` should be between 3.4V and 6.0V if the reverse-polarity protection
+diode has been removed from the Super Mini. Otherwise, the acceptable
+range is 3.6V to 6.0V.
 
 ## Sensor Connections
 
@@ -73,11 +83,11 @@ from machine import I2C, Pin
 i2c = I2C(0, scl = Pin(10), sda = Pin(9), freq = 100000)
 ```
 
-For 1-Wire protocols (such as DS18B20 temperature sensors), use pin
-8 for the data line. This pin is shared with the blue LED,
-so disable the LED in settings to avoid interference. More than one
-sensor may be attached to the same data line, and no pullup
-resistor is needed.
+For 1-Wire protocols (such as DS18B20 temperature sensors), use `Pin(8)`
+for the data line. Because this pin is shared with the blue LED,
+disable the LED in settings to avoid interference. More than one 1-Wire
+sensor may be attached to the same data line. The pullup
+resistor is optional (a 10k pullup is already present on the Super Mini).
 
 ## Power Measurements ##
 
@@ -96,7 +106,7 @@ dipole well above ground. Such an antenna has about 1 dB of loss.
 | Red LED On                    | +0.3         |
 | Blue LED On                   | +0.5         |
 
-### Si5351a TX, 90 Ohm
+### Si5351A TX, 90 Ohm
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
@@ -106,7 +116,7 @@ dipole well above ground. Such an antenna has about 1 dB of loss.
 | High (HP)        | 51           | 15.0               |
 | Ultra-High (UHP) | 54           | 16.1               |
 
-### MS5351m TX, 90 Ohm
+### MS5351M TX, 90 Ohm
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
@@ -116,7 +126,7 @@ dipole well above ground. Such an antenna has about 1 dB of loss.
 | High (HP)        | 63           | 14.2               |
 | Ultra-High (UHP) | 67           | 15.5               |
 
-### Si5351a TX, 50 Ohm
+### Si5351A TX, 50 Ohm
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
@@ -126,7 +136,7 @@ dipole well above ground. Such an antenna has about 1 dB of loss.
 | High (HP)        | 54           | 14.4               |
 | Ultra-High (UHP) | 58           | 15.4               |
 
-### MS5351m TX, 50 Ohm
+### MS5351M TX, 50 Ohm
 
 | Nomad TX Power   | Current (mA) | Output Power (dBm) |
 | ---------------- | ------------ | ------------------ |
