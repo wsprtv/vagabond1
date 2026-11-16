@@ -19,6 +19,18 @@ Vagabond1 is fully supported by
 - [ESP32 C3 Super Mini Documentation](https://www.espboards.dev/esp32/esp32-c3-super-mini/)
 - [Power Measurements](#power-measurements)
 
+## Disclaimer
+
+Like most Si5351A-based transmitters, Vagabond1 produces a square-wave
+output. It is your responsibility to provide the required harmonic filtering,
+and to otherwise ensure compliance with all applicable regulations.
+
+Transmission on HF frequencies requires an appropriate amateur radio license.
+
+Use of this project is entirely at your own risk. The authors assume no
+responsibility or liability for any damage, injury, loss, or regulatory
+issues resulting from building, modifying, or operating Vagabond1.
+
 ## Assembly
 
 Vagabond1 boards can be assembled at JLCPCB using
@@ -39,10 +51,6 @@ a ~30mm twisted feedline and ~46mm legs.
 
 A 3D-printed frame is [available](solar_cell_frame) for mounting
 Vagabond1 boards to six 52x19 or 39x19mm solar cells.
-
-Like most Si5351A-based WSPR transmitters, Vagabond1 produces a square-wave
-output. It is your responsibility to provide the required filtering and
-to otherwise ensure compliance with all applicable regulations.
 
 ## ESP32 C3 Super Mini Modifications
 
